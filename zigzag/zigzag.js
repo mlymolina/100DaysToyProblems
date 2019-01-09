@@ -41,47 +41,33 @@
 // Expected Output:
 // 6
 
-function zigzag(a) {
-  let longest = 0;
-  let current = 0;
-  let newArr = [];
 
-  if (a.length === 1) {
-    return 1;
-  }
+  function zigzag(a) {
+    if (a == null) return 0;
 
-  if (a.length === 2) {
-    if (a[0] === a[1]) {
-      return 1;
-    } else {
-      return 2;
-    }
-  }
-
-  for (let i = 0; i < a.length; i += 1) {
-    if (i === 0 || i === a.length - 1 || current === 0) {
-      current += 1;
-      newArr.push(a[i]);
-    } else if ((a[i] < a[i - 1] && a[i] < a[i + 1]) || (a[i] > a[i - 1] && a[i] > a[i + 1])) {
-      current += 1;
-      newArr.push(a[i]);
-    } else {
-      if (longest < current) {
-        longest = current;
+    let currentCount = 0;
+    let longest = 0;
+ 
+    for (let i = 0; i < a.length; i += 1) {
+      const current = a[i];
+      const prev = a[i - 1];
+      const next = a[i + 1];
+    
+      if (currentCount === 0) {
+        currentCount += 1;
+        if (next != null && next != current) {
+          currentCount += 1;
+        }
+      } else if (
+        (current > next && current > prev) ||
+        (current < next && current < prev)
+      ) {
+        currentCount += 1; 
+      } else {
+        i -= 1;
+        longest = Math.max(currentCount, longest);
+        currentCount = 0;
       }
-      current = 0;
-      newArr = [];
     }
+    return longest;
   }
-
-  console.log(JSON.stringify(newArr));
-  return longest;
-}
-var a = [9, 8, 8, 5, 3, 5, 3, 2, 8, 6];
-console.log(zigzag(a)); //4
-
-a = [4, 4];
-console.log(zigzag(a)); //1
-
-a = [2, 1, 4, 4, 1, 4, 4, 1, 2, 0, 1, 0, 0, 3, 1, 3, 4, 1, 3, 4];
-console.log(zigzag(a)); //6
