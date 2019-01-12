@@ -33,9 +33,10 @@ function digitRootSort(a) {
   console.log(roots);
   const output = Object.keys(roots).sort(function(a,b){return roots[a] - roots[b]});
   return output.map(function(item) {
-    return parseInt(item, 10);
+    return parseInt(item);
   });
 }
+
 
 function rootSortTests () {
   let totalPassed = 0;
