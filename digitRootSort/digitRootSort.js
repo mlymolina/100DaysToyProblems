@@ -17,26 +17,19 @@
 // [JavaScript (ES6)] Syntax Tips
 
 function digitRootSort(a) {
-
-  let input = a;
-  let roots = {};
-  
-  const reducer = (accumulator, currentValue) => accumulator + Number(currentValue);
-
+  let roots = [];
   if (a === null) return 0;
   
-  input.sort((a, b) => a - b);
-  for (let i = 0; i < input.length; i += 1) {
-    const root = input[i].toString().split('').reduce(reducer, 0);
-    roots[input[i]] = root;
-  }
-  console.log(roots);
-  const output = Object.keys(roots).sort(function(a,b){return roots[a] - roots[b]});
-  return output.map(function(item) {
-    return parseInt(item);
+  roots = a.map(d => [d, d.toString().split('').map(Number).reduce((acc, val) => acc + val, 0)]);
+  roots.sort((a, b) => 
+          a[1] == b[1]
+            ? a[0] - b[1]
+            : a[1] - b[1]);
+  
+  return roots.map(function(root) {
+    return root[0];
   });
 }
-
 
 function rootSortTests () {
   let totalPassed = 0;
