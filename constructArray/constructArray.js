@@ -36,7 +36,6 @@ function constructArray(size) {
 
     i += 1;  
   }
-
   return outputArray;
 }
 
