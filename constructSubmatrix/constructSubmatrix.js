@@ -76,14 +76,14 @@
 function constructSubmatrix(matrix, rowsToDelete, columnsToDelete) {
   let newMatrix = matrix;
   for (let row of rowsToDelete){
-      newMatrix.splice(row, 1);
+    newMatrix.splice(row, 1);
   }
   
   for (let j = columnsToDelete.length - 1; j >= 0; j -= 1 ) {
-      column = columnsToDelete[j];
-      for (let i = newMatrix.length - 1; i >=0 ; i -= 1) {
-          newMatrix[i].splice(column, 1)
-      }
+    column = columnsToDelete[j];
+    for (let i = newMatrix.length - 1; i >=0 ; i -= 1) {
+      newMatrix[i].splice(column, 1)
+    }
   }
   
   return newMatrix;
