@@ -57,11 +57,12 @@ function mergeSort(sequence) {
   }
 
   var split = function(sequence, left, right) {
-    if (left - right <= 1) return sequence;
+    if (left - right <= 1) return;
     var middle = Math.floor((left + right) / 2);
     split(sequence, left, middle);
     split(sequence, middle, right);
     merge(sequence, left, middle, right);
+    
   }
 
   split(sequence, 0, sequence.length);
