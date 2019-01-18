@@ -71,7 +71,7 @@
 // Expected Output:
 // [[1]]
 
-
+const test = require('../test.js');
 
 function constructSubmatrix(matrix, rowsToDelete, columnsToDelete) {
   let newMatrix = matrix;
@@ -89,31 +89,10 @@ function constructSubmatrix(matrix, rowsToDelete, columnsToDelete) {
   return newMatrix;
 }
 
+// const tests = [
+//   [[[1,0,0,2], [0,5,0,1], [0,0,3,5]], ],
+//   [[3, 6, 1, 5, 3, 6], [1, 3, 3, 5, 6, 6]],
+//   [[2, 8, 2, 9, 3, 2, 10, 7, 3], [2, 2, 2, 3, 3, 7, 8, 9, 10]]
+// ];
 
-function testFunction () {
-  let totalPassed = 0;
-  const tests = [
-    [[2, 4, 1, 5], [1, 2, 4, 5]],
-    [[3, 6, 1, 5, 3, 6], [1, 3, 3, 5, 6, 6]],
-    [[2, 8, 2, 9, 3, 2, 10, 7, 3], [2, 2, 2, 3, 3, 7, 8, 9, 10]]
-  ];
-
-  for (let test of tests) {
-    const result = bubbleSort(test[0]);
-    const testPassed = JSON.stringify(result) === JSON.stringify(test[1]);
-
-    if(testPassed) {
-      totalPassed += 1;
-    }
-
-    console.log(
-      'Array: ' + `[${test[0]}]`,
-      'Expected: ' +`[${test[1]}]`,
-      'Received: ' + `[${result}]`, 
-      testPassed ? 'PASS': 'FAIL'
-    );
-  }
-  console.log(`${totalPassed} out of ${tests.length} passed`);
-}
-
-testFunction();
+// test('Construct Submatrix', constructSubmatrix, tests);

@@ -81,4 +81,4 @@ var tests = [
   [[3, 5, 2, 4, 3, 7], [2, 3, 3, 4, 5, 7]]
 ];
 
-test('Merge Sort', mergeSort,tests);
+test('Merge Sort', mergeSort, tests);

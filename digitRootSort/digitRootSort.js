@@ -16,6 +16,8 @@
 
 // [JavaScript (ES6)] Syntax Tips
 
+const test = require('../test.js');
+
 function digitRootSort(a) {
   let roots = [];
   if (a === null) return 0;
@@ -31,28 +33,8 @@ function digitRootSort(a) {
   });
 }
 
-function rootSortTests () {
-  let totalPassed = 0;
-  let tests = [
-    [[13, 20, 7, 4], [20, 4, 13, 7]]
-  ];
+let tests = [
+  [[13, 20, 7, 4], [20, 4, 13, 7]]
+];
 
-  for (let test of tests) {
-    const result = digitRootSort(test[0]);
-    const testPassed = JSON.stringify(result) === JSON.stringify(test[1]);
-
-    if(testPassed) {
-      totalPassed += 1;
-    }
-
-    console.log(
-      'Array: ' + `[${test[0]}]`,
-      'Expected: ' +`[${test[1]}]`,
-      'Received: ' + `[${result}]`, 
-      testPassed ? 'PASS': 'FAIL'
-    );
-  }
-  console.log(`${totalPassed} out of ${tests.length} passed`);
-}
-
-rootSortTests();
+test('Digit Root Tests', digitRootSort, tests);
