@@ -1,4 +1,4 @@
-function testFunction (functName, funct,inputOutput) {
+function testFunction (functName, funct, inputOutput) {
   let totalPassed = 0;
   const tests = inputOutput;
 
