@@ -35,7 +35,7 @@ function mergeKArrays(arrays) {
     var minValue = 0;
     for (var j = 0; j < arrays.length; j++) {
       if (firstUnused[j] < arrays[j].length) {
-        if ( true ) {
+        if (j < n ) {
           minIndex = j;
           minValue = arrays[j][firstUnused[j]];
         }
