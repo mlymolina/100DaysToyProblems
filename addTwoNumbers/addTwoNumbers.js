@@ -20,9 +20,51 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
+
+
+
 var addTwoNumbers = function(l1, l2) {
-  var remaining = 0;
+  var remaining = 0; //carry
+  var output;
+  var currentOutput;
+  var currentl1 = l1;
+  var currentl2 = l2;
+
+  while (currentl1 != null || currentl2 != null) {
+    // update to check val || 0
+    var sum = ((currentl1 || {}).val || 0) + 
+              ((currentl2 || {}).val || 0) + 
+              remaining;
+    if (sum >= 10) {
+      const sumDigits = sum.toString().split('');
+      remaining = Number(sumDigits[0]);
+      sum = Number(sumDigits[1]);
+    } else {
+      remaining = 0;
+    }
+
+    const newNode = new ListNode(sum);      
+    if (output == null) { 
+        // store output head
+        output = newNode;
+        currentOutput = output;
+    } else {
+        // keep appending to the list
+        currentOutput.next = newNode;
+        currentOutput = currentOutput.next;
+    }
+
+    currentl1 = currentl1 ? currentl1.next : null;
+    currentl2 = currentl2 ? currentl2.next : null;
+  }
     
-    
-    
+  if (remaining != 0) {
+    currentOutput.next = new ListNode(remaining);  
+    }
+
+  return output;
 };
+
+
+
+
