@@ -41,9 +41,9 @@ function arrayTriplets(arr) {
   let tripletsCount = 0;
 
   // Todo: Implement with recursion
-  for(i = 0; i < arr.length; i++) {
-    for (j = i + 1; j < arr.length; j++) {    
-     for (k = j + 1; k < arr.length; k++) {
+  for(let i = 0; i < arr.length; i++) { 
+    for (let j = i + 1; j < arr.length; j++) {    
+     for (let k = j + 1; k < arr.length; k++) {
        if((arr[i] + arr[j] > arr[k]) && 
        (arr[j] + arr[k] > arr[i]) && 
        (arr[i] + arr[k] > arr[j])) {
