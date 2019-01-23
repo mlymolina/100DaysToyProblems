@@ -66,4 +66,12 @@ var tests = [
   [[6797239, 23107, 181408949, 1, 6508, 704186, 801896, 4794414, 20562767, 0], 0]
 ];
 
+// r = 0
+// arrayTriplets = a =>
+//     a.sort((a, b) => a-b).map((x, i) => {
+//         for (j = i; y = a[++i]; r += j > i && j + ~i)
+//             while (x+y > a[j])
+//                 j++
+//     }) | r
+
 test('Array Triplets', arrayTriplets, tests);
