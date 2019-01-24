@@ -32,8 +32,10 @@
 function firstNotRepeatingCharacter(s) {
   let times = '_';
   for (let i = 0; i < s.length; i += 1){
-      // var matchesCount = s.split(s[i]).length;
-      // if (matchesCount === 2) return s[i];
+    var matchesCount = s.split(s[i]).length;
+    if (matchesCount === 2) return s[i];
+    //   var find = `/${s[i]}/g`;
+    // if (s.match(find).length === 1) return s[i];
   }
   
   return times;
