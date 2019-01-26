@@ -43,7 +43,6 @@ rotateImage = a => {
       if (i === e.length - 1) return subArr;
     }
   });
-  console.log(JSON.stringify(a));
   return a;
 }
 
