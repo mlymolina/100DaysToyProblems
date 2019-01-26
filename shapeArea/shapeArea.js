@@ -29,7 +29,9 @@
 const test = require('../test.js');
 
 function shapeArea(n) {
+  let area = 0;
 
+  return area;
 }
 
 
