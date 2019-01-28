@@ -29,9 +29,7 @@
 const test = require('../test.js');
 
 function shapeArea(n) {
-  let area = 0;
-
-  return area;
+  return Math.pow(n, 2) + Math.pow(n - 1, 2);
 }
 
 
