@@ -56,6 +56,7 @@
 // The total price of all the rooms that are suitable for the CodeBots to live in.
 
 // Reference: https://app.codesignal.com/arcade/intro/level-2/xskq4ZxLyqQMCLshr
+
 const test = require('../test.js');
 
 const matrixElementsSum = (matrix) => {
