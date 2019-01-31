@@ -48,3 +48,4 @@ function arrayMode(sequence) {
 // sequence: [1, 4, 10, 4, 2]
 // Expected Output:
 // 4
+
