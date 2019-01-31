@@ -58,12 +58,17 @@
 // Reference: https://app.codesignal.com/arcade/intro/level-2/xskq4ZxLyqQMCLshr
 const test = require('../test.js');
 
-
-function matrixElementsSum(matrix) {
-
+const matrixElementsSum = (matrix) => {
+  let suitableRooms = 0;
+  for (let col = 0; col < matrix.length; col += 1) {
+    for (let row = 0; row < matrix.length; row += 1) {
+      if(row - 1 == -1 || matrix[row - 1][col] !== 0) suitableRooms += matrix[row][col];
+    }
+  }
+  return suitableRooms;
 }
 
-var tests = [
+const tests = [
   [[[0,1,1,2], [0,5,0,0], [2,0,3,3]], 9],
   [[[1,1,1,0], [0,5,0,1], [2,1,3,10]], 9],
   [[[1,1,1], [2,2,2], [3,3,3]], 18],
