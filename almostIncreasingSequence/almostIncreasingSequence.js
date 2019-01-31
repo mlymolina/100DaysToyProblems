@@ -45,13 +45,16 @@ function almostIncreasingSequence(sequence) {
   if(isIncreasingSequence(sequence)) return true;
 
   for (let i = 0; i < sequence.length; i++){
-    var newSequence = sequence.slice(0);
-    newSequence.splice(i, 1);
-    if (isIncreasingSequence(newSequence)) return true;
+    if (sequence[i] >= sequence [i + 1] || sequence[i] <= sequence[i-1]) {
+      var newSequence = sequence.slice(0);
+      newSequence.splice(i, 1);
+      if (isIncreasingSequence(newSequence)) return true;
+    }
   }
 
   return false;
 }
+
 
 var tests = [
   [[1, 3, 2, 1], false], 
