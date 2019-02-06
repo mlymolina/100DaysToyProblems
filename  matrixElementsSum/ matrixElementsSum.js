@@ -61,9 +61,11 @@ const test = require('../test.js');
 
 const matrixElementsSum = (matrix) => {
   let suitableRooms = 0;
-  for (let col = 0; col < matrix.length; col += 1) {
+  let columnLength = matrix[0].length;
+  for (let col = 0; col < columnLength; col += 1) {
     for (let row = 0; row < matrix.length; row += 1) {
-      if(row - 1 == -1 || matrix[row - 1][col] !== 0) suitableRooms += matrix[row][col];
+      // Need to refactor to invalid whole column when element in first row is 0.
+      if(row - 1 == -1 || (matrix[row - 1][col] !== 0 && matrix[0][col] != 0)) suitableRooms += matrix[row][col];
     }
   }
   return suitableRooms;
@@ -75,6 +77,11 @@ const tests = [
   [[[1,1,1], [2,2,2], [3,3,3]], 18],
   [[[0]], 0]
 ];
+
 test('matrixElementsSum', matrixElementsSum, tests);
 
-
+// [
+//   [1,1,1,0], 
+//   [0,5,0,1], 
+//   [2,1,3,10]
+// ]
