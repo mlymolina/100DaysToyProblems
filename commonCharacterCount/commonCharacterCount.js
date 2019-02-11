@@ -28,36 +28,19 @@
 // Reference: https://app.codesignal.com/arcade/intro/level-3/JKKuHJknZNj4YGL32
 
 function commonCharacterCount(s1, s2) {
+  let counter = 0;
+  const positions = [];
+// Pending refactoring to improve time complexityå
+  for(let i = 0; i < s1.length; i++) {
+    for(let j = 0; j < s2.length; j++) {
+      if ((s1[i] == s2[j]) && !(positions.includes(j))) {
+        counter++;
+        positions.push(j);
+        break;
+      }
+    }
+  }
 
+  return counter;
 }
 
-
-// Input:
-// s1: "aabcc"
-// s2: "adcaa"
-// Expected Output:
-// 3
-
-// nput:
-// s1: "zzzz"
-// s2: "zzzzzzz"
-// Expected Output:
-// 4
-
-// Input:
-// s1: "abca"
-// s2: "xyzbac"
-// Expected Output:
-// 3
-
-// Input:
-// s1: "a"
-// s2: "b"
-// Expected Output:
-// 0
-
-
-// Input:
-// s1: "a"
-// s2: "aaa"
-// Expected Output:
